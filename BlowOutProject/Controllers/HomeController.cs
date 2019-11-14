@@ -13,6 +13,7 @@ namespace BlowOutProject.Controllers
             return View();
         }
         //GitHub test from matt 
+        //paige
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
