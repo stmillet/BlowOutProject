@@ -10,5 +10,15 @@ namespace BlowOutProject.Models
         public string Name { get; set; }
         public string PriceUsed { get; set; }
         public string PriceNew { get; set; }
+
+        public string CalcPriceUsed()
+        {
+            return this.PriceUsed;
+        }
+
+        public string CalcPriceNew()
+        {
+            return this.PriceNew;
+        }
     }
 }
