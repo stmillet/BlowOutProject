@@ -139,9 +139,9 @@
     <Content Include="Content\image\Flute.jpg" />
     <Content Include="Content\image\instruments.jpg" />
     <Content Include="Content\image\music players.jpg" />
-    <Content Include="Content\image\Sax.jpg" />
-    <Content Include="Content\image\thetrombone.jpg" />
-    <Content Include="Content\image\thetrumpet.jpg" />
+    <Content Include="Content\image\Saxophone.jpg" />
+    <Content Include="Content\image\Trombone.jpg" />
+    <Content Include="Content\image\Trumpet.jpg" />
     <Content Include="Content\image\Tuba.jpg" />
     <Content Include="Content\myStyles.css" />
     <Content Include="favicon.ico" />
