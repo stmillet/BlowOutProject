@@ -16,5 +16,12 @@ namespace BlowOutProject.Controllers
             ViewBag.DisplayMessage3 = ".Thank you!";
             return View();
         }
+
+        public ActionResult Email(string name, string email)
+        {
+            string EmailString = "Thanks " + name + "We will send an email to " + email;
+            ViewBag.EmailConfirmation = EmailString;
+            return View();
+        }
     }
 }
