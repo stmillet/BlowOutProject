@@ -134,6 +134,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\image\music players.jpg" />
     <Content Include="Content\image\thetrombone.jpg" />
     <Content Include="Content\image\thetrumpet.jpg" />
     <Content Include="Content\myStyles.css" />
