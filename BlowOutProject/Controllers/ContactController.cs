@@ -19,7 +19,7 @@ namespace BlowOutProject.Controllers
 
         public ActionResult Email(string name, string email)
         {
-            string EmailString = "Thanks " + name + "We will send an email to " + email;
+            string EmailString = "Thanks " + name + " we will send an email to " + email + ".";
             ViewBag.EmailConfirmation = EmailString;
             return View();
         }
