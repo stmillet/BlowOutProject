@@ -7,8 +7,8 @@ namespace BlowOutProject.Models
 {
     public class Instruments
     {
-        public string name;
-        public string priceUsed;
-        public string priceNew;
+        public string Name { get; set; }
+        public string PriceUsed { get; set; }
+        public string PriceNew { get; set; }
     }
 }
