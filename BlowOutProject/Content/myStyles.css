@@ -1,3 +1,8 @@
 ﻿.myFooterText {
     font-family: 'Baskerville Old Face';
 }
+
+.ourImage {
+    max-width: 50%;
+    height: auto;
+}
