@@ -2,54 +2,12 @@
     ViewBag.Title = "Blow Out!";
 }
 
-<head>
-    <style>
-        body {
-            margin: 0;
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            width: 25%;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-        }
-
-        li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-            li a.active {
-                background-color: #4CAF50;
-                color: white;
-            }
-
-            li a:hover:not(.active) {
-                background-color: #555;
-                color: white;
-            }
-    </style>
-</head>
 <body>
-
-    <ul>
-        <li><a class="active" href="@Url.Action("Index", "Rentals")">Rentals</a></li>
-        <li><a href="@Url.Action("About", "Home")">About</a></li>
-        <li><a href="@Url.Action("Index", "Contact")">Contact</a></li>
-    </ul>
 
     <div class="jumbotron">
         <img src="~/Content/image/music players.jpg" />
         <h1>Welcome to Blow Out</h1>
         <p class="lead">We blow the competitors out of the water!</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
 </body>
