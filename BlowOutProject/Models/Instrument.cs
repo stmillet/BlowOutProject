@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BlowOutProject.Models
 {
-    public class Instruments
+    public class Instrument
     {
         public string Name { get; set; }
         public string PriceUsed { get; set; }

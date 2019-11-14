@@ -10,9 +10,9 @@ namespace BlowOutProject.Controllers
     public class RentalsController : Controller
     {
 
-        public static List<Instruments> lstInstruments = new List<Instruments>()
+        public static List<Instrument> lstInstruments = new List<Instrument>()
         {
-            new Instruments { Name = "Trumpet", PriceUsed = "$55 a month", PriceNew = "$25 a month" }
+            new Instrument { Name = "Trumpet", PriceUsed = "$55 a month", PriceNew = "$25 a month" }
         };
         
         // GET: Rentals
