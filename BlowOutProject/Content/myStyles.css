@@ -9,3 +9,7 @@
 .detailPics {
     height: 400px;
 }
+
+.table-bordered {
+    border: 1px solid navy;
+}
