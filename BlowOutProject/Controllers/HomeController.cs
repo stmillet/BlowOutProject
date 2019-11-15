@@ -16,7 +16,7 @@ namespace BlowOutProject.Controllers
         //paige
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "We are BlowOut Instrument Rentals!Thank you for coming to our website.";
 
             return View();
         }
