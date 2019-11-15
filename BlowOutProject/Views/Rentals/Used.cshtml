@@ -26,17 +26,9 @@
             @Html.DisplayFor(model => model.PriceUsed)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PriceNew)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PriceNew)
-        </dd>
-
     </dl>
+    <p>Once the 18 months has been achieved, the client owns the instrument. If instrument is returned at any time before 3 months, there will be a $200 re-stocking fee. If instrument is returned after 3 months they forfeit any equity in the instrument.</p>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
