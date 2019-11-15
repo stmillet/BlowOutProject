@@ -31,6 +31,18 @@ namespace BlowOutProject.Controllers
             Instrument theInst = lstInstruments.Find(x => x.Name == name);
             return View(theInst);
         }
+
+        public ActionResult New(Instrument inst)
+        {
+            ViewBag.DisplayMessage3 = inst;
+            return View();
+        }
+
+        public ActionResult Used(Instrument inst)
+        {
+            ViewBag.DisplayMessage3 = inst;
+            return View();
+        }
     }
 
 }

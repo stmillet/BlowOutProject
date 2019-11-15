@@ -6,7 +6,8 @@
 <link rel="stylesheet" type="text/css" href="~/Content/myStyles.css" />
 <h2>@Model.Name</h2>
 <h3>Click to see pricing:</h3>
+<p>@Html.ActionLink("New", "New", "Rentals" )</p>
+<p>@Html.ActionLink("Used", "Used", "Rentals")</p>
+<br />
 
- <img src="~/Content/image/@{@Model.Name}.jpg" class="detailPics" />
-
-@Html.
+<img src="~/Content/image/@{@Model.Name}.jpg" class="detailPics" />

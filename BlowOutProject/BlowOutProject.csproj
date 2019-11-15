@@ -180,6 +180,8 @@
     <Content Include="Views\Contact\Email.cshtml" />
     <Content Include="Views\Rentals\Index.cshtml" />
     <Content Include="Views\Rentals\Details.cshtml" />
+    <Content Include="Views\Rentals\New.cshtml" />
+    <Content Include="Views\Rentals\Used.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
