@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlowOutProject.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,8 +13,9 @@ namespace BlowOutProject.Controllers
         {
             return View();
         }
-        //GitHub test from matt 
-        //paige
+
+        private InstrumentRentalContext db = new InstrumentRentalContext();
+        
         public ActionResult About()
         {
             ViewBag.Message = "We are BlowOut Instrument Rentals! Thank you for coming to our website.";
