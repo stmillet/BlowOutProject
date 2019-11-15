@@ -32,16 +32,18 @@ namespace BlowOutProject.Controllers
             return View(theInst);
         }
 
-        public ActionResult New(Instrument inst)
+    
+        public ActionResult New(string nameIn)
         {
-            ViewBag.DisplayMessage3 = inst;
-            return View();
+            //FIXME
+            Instrument myInstrument = lstInstruments.Find(x => x.Name == nameIn);
+            return View(myInstrument);
         }
 
-        public ActionResult Used(Instrument inst)
+        public ActionResult Used(string nameIn)
         {
-            ViewBag.DisplayMessage3 = inst;
-            return View();
+            Instrument myInstrument = lstInstruments.FirstOrDefault(x => x.Name == nameIn);
+            return View(myInstrument);
         }
     }
 
