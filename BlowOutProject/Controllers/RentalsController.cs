@@ -10,6 +10,7 @@ namespace BlowOutProject.Controllers
     public class RentalsController : Controller
     {
 
+        //initialize values to instrument object
         public static List<Instrument> lstInstruments = new List<Instrument>()
         {
             new Instrument { Name = "Trumpet", PriceUsed = "$25 a month", PriceNew = "$55 a month" },
@@ -26,20 +27,21 @@ namespace BlowOutProject.Controllers
             return View();
         }
 
+        //pass instrument information to model when instrument is chosen
         public ActionResult Details(string name)
         {
             Instrument theInst = lstInstruments.Find(x => x.Name == name);
             return View(theInst);
         }
 
-    
+        //pass new instrument information from model to view
         public ActionResult New(string nameIn)
         {
-            //FIXME
             Instrument myInstrument = lstInstruments.Find(x => x.Name == nameIn);
             return View(myInstrument);
         }
 
+        //pass used instrument information from model to view
         public ActionResult Used(string nameIn)
         {
             Instrument myInstrument = lstInstruments.FirstOrDefault(x => x.Name == nameIn);

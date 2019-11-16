@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "Index";
 }
+<!--connect to stylesheet-->
 <link rel="stylesheet" type="text/css" href="~/Content/myStyles.css" />
 <h2>Possible instruments to rent:</h2>
 
+<!--linked instrument images menu-->
 <a href='@Url.Action("Details", "Rentals", new { name = "Trumpet"})'>
     <img src="~/Content/image/Trumpet.jpg" class="ourImage" />
 </a>
