@@ -3,11 +3,14 @@
 @{
     ViewBag.Title = Model.Name;
 }
+<!--connect to stylesheet-->
 <link rel="stylesheet" type="text/css" href="~/Content/myStyles.css" />
 <h2>@Model.Name</h2>
+<!--Links to display new and used pricing-->
 <h3>Click to see pricing:</h3>
 <p>@Html.ActionLink("New", "New", "Rentals", new {nameIn = Model.Name}, null)</p>
 <p>@Html.ActionLink("Used", "Used", "Rentals", new { nameIn = Model.Name }, null)</p>
 <br />
 
+<!--item image-->
 <img src="~/Content/image/@{@Model.Name}.jpg" class="detailPics" />

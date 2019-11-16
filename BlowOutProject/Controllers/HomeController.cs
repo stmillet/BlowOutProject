@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//this is emmett's test comment
+
 namespace BlowOutProject.Controllers
 {
     public class HomeController : Controller
@@ -12,8 +12,8 @@ namespace BlowOutProject.Controllers
         {
             return View();
         }
-        //GitHub test from matt 
-        //paige
+
+        //pass website about information to viewbag
         public ActionResult About()
         {
             ViewBag.Message = "We are BlowOut Instrument Rentals! Thank you for coming to our website.";
@@ -21,6 +21,7 @@ namespace BlowOutProject.Controllers
             return View();
         }
 
+        //pass contact page string to viewbag
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

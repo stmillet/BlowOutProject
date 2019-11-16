@@ -7,10 +7,12 @@ namespace BlowOutProject.Models
 {
     public class Instrument
     {
+        //initialize instrument object attributes
         public string Name { get; set; }
         public string PriceUsed { get; set; }
         public string PriceNew { get; set; }
 
+        //determine and initialize used and new prices
         public string CalcPriceUsed()
         {
             return this.PriceUsed;
