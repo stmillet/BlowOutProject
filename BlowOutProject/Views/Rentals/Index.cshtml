@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="~/Content/myStyles.css" />
 <h2>Possible instruments to rent:</h2>
 
-<!--linked instrument images menu-->
+<!--linked instrument images menu. Takes the instruments from the database-->
 @foreach (var item in Model)
 {
     <a href='@Url.Action("AddClient", "Rentals", new { id=item.InstrumentID })'>
@@ -15,52 +15,3 @@
     </a>
 }
 
-<!--
-<a href='@Url.Action("AddClient", "Rentals", new { name = "TrumpetNew"})'>
-    <img src="~/Content/image/Trumpet.jpg" class="ourImage" /> <br /><p>New Trumpet</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "TrumpetUsed"})'>
-    <img src="~/Content/image/Trumpet.jpg" class="ourImage" /> <br /><p>Used Trumpet</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "TromboneNew" })'>
-    <img src="~/Content/image/Trombone.jpg" class="ourImage" /> <br /><p>New Trombone</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "TromboneUsed" })'>
-    <img src="~/Content/image/Trombone.jpg" class="ourImage" /><br /><p>Used Trombone</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "TubaNew" })'>
-    <img src="~/Content/image/Tuba.jpg" class="ourImage" /><br /><p>New Tuba</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "TubaUsed" })'>
-    <img src="~/Content/image/Tuba.jpg" class="ourImage" /><br /><p>Used Tuba</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "FluteNew" })'>
-    <img src="~/Content/image/Flute.jpg" class="ourImage" /><br /><p>New Flute</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "FluteUsed" })'>
-    <img src="~/Content/image/Flute.jpg" class="ourImage" /><br /><p>Used Flute</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "ClarinetNew" })'>
-    <img src="~/Content/image/Clarinet.jpg" class="ourImage" /><br /><p>New Clarinet</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "ClarinetUsed" })'>
-    <img src="~/Content/image/Clarinet.jpg" class="ourImage" /><br /><p>Used Clarinet</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "SaxophoneNew" })'>
-    <img src="~/Content/image/Saxophone.jpg" class="ourImage" /><br /><p>New Saxophone</p>
-</a>
-
-<a href='@Url.Action("AddClient", "Rentals", new { name = "SaxophoneUsed" })'>
-    <img src="~/Content/image/Saxophone.jpg" class="ourImage" /><br /><p>Used Saxophone</p>
-</a>
--->

@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Checkpoint 4 - Connecting the Blowout Project using Databases.
+
+//Spencer Millett, Paige Harper, Emmett Madsen, Matthew Ported
+
+//IS 403 Section 01
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

@@ -10,6 +10,8 @@ namespace BlowOutProject.Models
     [Table("Client")]
     public class Client
     {
+        //This is the Client Model which matches up with the Client Table in the database
+
         [Key]
         public int ClientID { get; set; }
 
@@ -34,6 +36,7 @@ namespace BlowOutProject.Models
         public string ClientState { get; set; }
 
         [Required]
+        [RegularExpression(@"^\d\d\d\d\d$", ErrorMessage = "Zip Code should be five digits")]
         [Display(Name = "Zip Code")]
         public string ClientZipCode { get; set; }
 
@@ -43,6 +46,7 @@ namespace BlowOutProject.Models
         public string ClientEmail { get; set; }
 
         [Required]
+        [RegularExpression(@"^\(\d\d\d\) \d\d\d-\d\d\d\d$", ErrorMessage = "Please display phone number in this format: (000) 000-0000")]
         [Display(Name = "Phone Number")]
         public string ClientPhone { get; set; }
 

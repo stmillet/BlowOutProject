@@ -10,6 +10,7 @@ namespace BlowOutProject.Models
     [Table("Instrument")]
     public class Instrument
     {
+        //This is the instrument Model which matches with the Instrument table in the database
 
         [Key]
         public int InstrumentID { get; set; }

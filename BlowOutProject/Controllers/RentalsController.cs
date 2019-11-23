@@ -11,29 +11,24 @@ namespace BlowOutProject.Controllers
     public class RentalsController : Controller
     {
 
-        //initialize values to instrument object
+        //Create the database object
         private InstrumentRentalContext db = new InstrumentRentalContext();
-        /*{
-            new Instrument { InstDescription = "Trumpet", InstUsedPrice = 25, InstNewPrice = 55 },
-            new Instrument { InstDescription = "Trombone", InstUsedPrice = 35, InstNewPrice = 60 },
-            new Instrument { InstDescription = "Tuba", InstUsedPrice = 50, InstNewPrice = 70 },
-            new Instrument { InstDescription = "Flute", InstUsedPrice = 25, InstNewPrice = 40 },
-            new Instrument { InstDescription = "Clarinet", InstUsedPrice = 27, InstNewPrice = 35 },
-            new Instrument { InstDescription = "Saxophone", InstUsedPrice = 30, InstNewPrice = 42 }
-        };*/
-
+       
+   
         // GET: Rentals
         public ActionResult Index()
         {
             return View(db.Instrument.ToList());
         }
 
-        //pass instrument information to model when instrument is chosen
+        //After Instrument is chosen, takes user to add a client
         public ActionResult AddClient(int ID)
         {
             return View();
         }
 
+        //Verifies the data is valid, and then adds the client to the database and updates 
+        //instrument clientID then takes them to the final display page.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddClient([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientState,ClientZipCode,ClientEmail,ClientPhone")] Client client, int ID)
@@ -56,7 +51,7 @@ namespace BlowOutProject.Controllers
         }
 
 
-        //pass new instrument information from model to view
+        //puts the data in viewbags so that it can be displayed on this page.
         public ActionResult Summary(int ClientID, int InstrumentID)
         {
             Client client = db.Client.Find(ClientID);

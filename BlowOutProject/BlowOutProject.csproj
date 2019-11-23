@@ -150,6 +150,7 @@
     <Content Include="Content\image\music players.jpg" />
     <Content Include="Content\image\Saxophone .jpg" />
     <Content Include="Content\image\Trombone  .jpg" />
+    <Content Include="Content\image\Trump.jpg" />
     <Content Include="Content\image\Trumpet   .jpg" />
     <Content Include="Content\image\Tuba      .jpg" />
     <Content Include="Content\myStyles.css" />
