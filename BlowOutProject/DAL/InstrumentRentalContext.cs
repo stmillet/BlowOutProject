@@ -10,11 +10,12 @@ namespace BlowOutProject.DAL
     public class InstrumentRentalContext : DbContext
     {
         public InstrumentRentalContext()
-            : base("InsturmentRentalContext")
+            : base("InstrumentRentalContext")
         {
 
         }
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<Instrument> Instruments { get; set; }
+
+        public DbSet<Client> Client { get; set;}
+        public DbSet<Instrument> Instrument { get; set; }
     }
 }

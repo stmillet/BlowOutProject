@@ -1,7 +1,9 @@
-﻿.myFooterText {
+﻿/*font for footer text*/
+.myFooterText {
     font-family: 'Baskerville Old Face';
 }
 
+/*dimensions for images*/
 .ourImage {
     height: 200px;
 }
@@ -10,6 +12,7 @@
     height: 400px;
 }
 
+/*table styling*/
 .table-bordered {
     border: 1px solid navy;
 }

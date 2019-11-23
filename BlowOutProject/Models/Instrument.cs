@@ -9,24 +9,25 @@ namespace BlowOutProject.Models
 {
     [Table("Instrument")]
     public class Instrument
-    {   
+    {
+        //This is the instrument Model which matches with the Instrument table in the database
+
         [Key]
-        [Required]
         public int InstrumentID { get; set; }
+
         [Required]
-        [Display(Name ="Description")]
+        [Display(Name = "Description")]
         public string InstDescription { get; set; }
+
         [Required]
         [Display(Name = "Instrument Type")]
         public string InstType { get; set; }
-        [Required]
-        [Display(Name = "Price New")]
-        public double InstNewPrice { get; set; }
-        [Required]
-        [Display(Name = "Price Used")]
-        public double InstUsedPrice { get; set; }
-        [Required]
-        private int  ClientId { get; set; }
 
+        [Required]
+        [Display(Name = "Price")]
+        public decimal InstPrice { get; set; }
+
+    
+        public int? ClientID { get; set; }
     }
 }

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Summary";
+}
+
+<h1>Thank you @ViewBag.Client.ClientFirstName! </h1>
+
+<!--Displays the information for the instrument bought, the orderid is actually the clientid-->
+
+<h2>Order Information:</h2>
+
+<h3><strong>Order ID:</strong> @ViewBag.Client.ClientID</h3>
+<h3><strong>Instrument Name:</strong> @ViewBag.Inst.InstDescription</h3>
+<h3><strong>Instrument Type:</strong> @ViewBag.Inst.InstType</h3>
+<img src="~/Content/image/@{@ViewBag.Inst.InstDescription}.jpg" class="ourImage"/>
+<h3><strong>Monthly Price:</strong> $@ViewBag.Inst.InstPrice.ToString("0.00")</h3>
+<h3><strong>Total Paid After 18 months:</strong> $@ViewBag.After18.ToString("0.00")</h3>
+
+
+

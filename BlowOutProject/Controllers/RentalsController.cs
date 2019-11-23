@@ -1,4 +1,5 @@
-﻿using BlowOutProject.Models;
+﻿using BlowOutProject.DAL;
+using BlowOutProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,40 +11,56 @@ namespace BlowOutProject.Controllers
     public class RentalsController : Controller
     {
 
-        public static List<Instrument> lstInstruments = new List<Instrument>()
-        {
-            new Instrument { InstDescription = "Trumpet", InstUsedPrice = 25 , InstNewPrice = 55 },
-            new Instrument { InstDescription = "Trombone", InstUsedPrice = 35, InstNewPrice = 60 },
-            new Instrument { InstDescription = "Tuba", InstUsedPrice = 50, InstNewPrice = 70 },
-            new Instrument { InstDescription = "Flute", InstUsedPrice = 25, InstNewPrice = 40 },
-            new Instrument { InstDescription = "Clarinet", InstUsedPrice = 27, InstNewPrice = 35 },
-            new Instrument { InstDescription = "Saxophone", InstUsedPrice = 30, InstNewPrice = 42 }
-        };
-        
+        //Create the database object
+        private InstrumentRentalContext db = new InstrumentRentalContext();
+       
+   
         // GET: Rentals
         public ActionResult Index()
+        {
+            return View(db.Instrument.ToList());
+        }
+
+        //After Instrument is chosen, takes user to add a client
+        public ActionResult AddClient(int ID)
         {
             return View();
         }
 
-        public ActionResult Details(string name)
+        //Verifies the data is valid, and then adds the client to the database and updates 
+        //instrument clientID then takes them to the final display page.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddClient([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientState,ClientZipCode,ClientEmail,ClientPhone")] Client client, int ID)
         {
-            Instrument theInst = lstInstruments.Find(x => x.InstDescription == name);
-            return View(theInst);
+            if (ModelState.IsValid)
+            {
+                db.Client.Add(client);
+                db.SaveChanges();
+
+                //Look up Instrument
+                Instrument inst = db.Instrument.Find(ID);
+
+                inst.ClientID = client.ClientID;
+                db.SaveChanges();
+
+                return RedirectToAction("Summary", new { ClientID = client.ClientID, InstrumentID = inst.InstrumentID });
+            }
+
+            return View(client);
         }
 
-    
-        public ActionResult New(string nameIn)
-        {
-            //FIXME
-            Instrument myInstrument = lstInstruments.Find(x => x.InstDescription == nameIn);
-            return View(myInstrument);
-        }
 
-        public ActionResult Used(string nameIn)
+        //puts the data in viewbags so that it can be displayed on this page.
+        public ActionResult Summary(int ClientID, int InstrumentID)
         {
-            Instrument myInstrument = lstInstruments.FirstOrDefault(x => x.InstDescription == nameIn);
-            return View(myInstrument);
+            Client client = db.Client.Find(ClientID);
+            Instrument inst = db.Instrument.Find(InstrumentID);
+
+            ViewBag.Client = client;
+            ViewBag.Inst = inst;
+            ViewBag.After18 = inst.InstPrice * 18;
+            return View();
         }
     }
 
