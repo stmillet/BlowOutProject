@@ -18,7 +18,7 @@ namespace BlowOutProject.Controllers
         // GET: Clients
         public ActionResult Index()
         {
-            return View(db.Client.ToList());
+           return View(db.Clients.ToList());
         }
 
         // GET: Clients/Details/5
@@ -28,7 +28,7 @@ namespace BlowOutProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Client.Find(id);
+            Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -47,11 +47,11 @@ namespace BlowOutProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientState,ClientZipCode,ClientEmail,ClientPhone")] Client client)
+        public ActionResult Create([Bind(Include = "ClientID,CLientFirstName,ClientLastName,ClientAddress,ClientCity,ClientZipCode,ClientEmail,CLientPhone")] Client client)
         {
             if (ModelState.IsValid)
             {
-                db.Client.Add(client);
+                db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace BlowOutProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Client.Find(id);
+            Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace BlowOutProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientState,ClientZipCode,ClientEmail,ClientPhone")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientID,CLientFirstName,ClientLastName,ClientAddress,ClientCity,ClientZipCode,ClientEmail,CLientPhone")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace BlowOutProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Client.Find(id);
+            Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace BlowOutProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Client.Find(id);
-            db.Client.Remove(client);
+            Client client = db.Clients.Find(id);
+            db.Clients.Remove(client);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

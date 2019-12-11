@@ -10,51 +10,58 @@ namespace BlowOutProject.Controllers
 {
     public class RentalsController : Controller
     {
-        private InstrumentRentalContext db = new InstrumentRentalContext();
 
-        //initialize values to instrument object
-        public static List<Instrument> lstInstruments = new List<Instrument>()
-        {/*
-            new Instrument { InstDescription = "Trumpet", InstUsedPrice = 25, InstNewPrice = 55 },
-            new Instrument { InstDescription = "Trombone", InstUsedPrice = 35, InstNewPrice = 60 },
-            new Instrument { InstDescription = "Tuba", InstUsedPrice = 50, InstNewPrice = 70 },
-            new Instrument { InstDescription = "Flute", InstUsedPrice = 25, InstNewPrice = 40 },
-            new Instrument { InstDescription = "Clarinet", InstUsedPrice = 27, InstNewPrice = 35 },
-            new Instrument { InstDescription = "Saxophone", InstUsedPrice = 30, InstNewPrice = 42 }
-            */
-        };
-        
+        //Create the database object
+        private InstrumentRentalContext db = new InstrumentRentalContext();
+       
+   
         // GET: Rentals
         public ActionResult Index()
         {
             return View(db.Instrument.ToList());
         }
 
-        //pass instrument information to model when instrument is chosen
-        public ActionResult Details(string name)
-        {
-            Instrument theInst = lstInstruments.Find(x => x.InstDescription == name);
-            return View(theInst);
-        }
-
-        //pass new instrument information from model to view
-        public ActionResult New(int instID)
-        {
-            Instrument myInstrument = db.Instrument.Find(instID);
-            return View(myInstrument);
-        }
-
-        //pass used instrument information from model to view
-        public ActionResult Used(string nameIn)
-        {
-            Instrument myInstrument = lstInstruments.FirstOrDefault(x => x.InstDescription == nameIn);
-            return View(myInstrument);
-        }
-
-        //pass client information to view
-        public ActionResult AddClient()
+        //After Instrument is chosen, takes user to add a client
+        public ActionResult AddClient(int ID)
         {
             return View();
         }
+
+        //Verifies the data is valid, and then adds the client to the database and updates 
+        //instrument clientID then takes them to the final display page.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddClient([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientState,ClientZipCode,ClientEmail,ClientPhone")] Client client, int ID)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Client.Add(client);
+                db.SaveChanges();
+
+                //Look up Instrument
+                Instrument inst = db.Instrument.Find(ID);
+
+                inst.ClientID = client.ClientID;
+                db.SaveChanges();
+
+                return RedirectToAction("Summary", new { ClientID = client.ClientID, InstrumentID = inst.InstrumentID });
+            }
+
+            return View(client);
+        }
+
+
+        //puts the data in viewbags so that it can be displayed on this page.
+        public ActionResult Summary(int ClientID, int InstrumentID)
+        {
+            Client client = db.Client.Find(ClientID);
+            Instrument inst = db.Instrument.Find(InstrumentID);
+
+            ViewBag.Client = client;
+            ViewBag.Inst = inst;
+            ViewBag.After18 = inst.InstPrice * 18;
+            return View();
+        }
     }
+
 }

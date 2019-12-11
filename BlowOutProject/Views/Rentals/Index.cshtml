@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<BlowOutProject.Models.Instrument>
-
 @{
     ViewBag.Title = "Index";
 }
@@ -7,12 +6,12 @@
 <link rel="stylesheet" type="text/css" href="~/Content/myStyles.css" />
 <h2>Possible instruments to rent:</h2>
 
-<table>
-    @foreach (var item in Model)
-    {
-        <a href='@Url.Action("Create", "Clients", new { id = item.InstrumentID })'>
-            <img src="~/Content/image/@{@item.InstDescription}.jpg" />
-            <p>@{@item.InstType}  @{@item.InstDescription}</p>
-        </a>
-    }
-</table>
+<!--linked instrument images menu. Takes the instruments from the database-->
+@foreach (var item in Model)
+{
+    <a href='@Url.Action("AddClient", "Rentals", new { id=item.InstrumentID })'>
+        <img src="~/Content/image/@{@item.InstDescription}.jpg" class="ourImage" />
+        <br /><p>@item.InstType  @item.InstDescription</p>
+    </a>
+}
+
