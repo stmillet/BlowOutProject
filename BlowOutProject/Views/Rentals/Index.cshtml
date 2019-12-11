@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BlowOutProject.Models.Instrument>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -6,28 +7,12 @@
 <link rel="stylesheet" type="text/css" href="~/Content/myStyles.css" />
 <h2>Possible instruments to rent:</h2>
 
-<!--linked instrument images menu-->
-<a href='@Url.Action("Details", "Rentals", new { name = "Trumpet"})'>
-    <img src="~/Content/image/Trumpet.jpg" class="ourImage" />
-</a>
-
-<a href='@Url.Action("Details", "Rentals", new { name = "Trombone" })'>
-    <img src="~/Content/image/Trombone.jpg" class="ourImage" />
-</a>
-
-<a href='@Url.Action("Details", "Rentals", new { name = "Tuba" })'>
-    <img src="~/Content/image/Tuba.jpg" class="ourImage" />
-</a>
-
-<a href='@Url.Action("Details", "Rentals", new { name = "Flute" })'>
-    <img src="~/Content/image/Flute.jpg" class="ourImage" />
-</a>
-
-<a href='@Url.Action("Details", "Rentals", new { name = "Clarinet" })'>
-    <img src="~/Content/image/Clarinet.jpg" class="ourImage" />
-</a>
-
-<a href='@Url.Action("Details", "Rentals", new { name = "Saxophone" })'>
-    <img src="~/Content/image/Saxophone.jpg" class="ourImage" />
-</a>
-
+<table>
+    @foreach (var item in Model)
+    {
+        <a href='@Url.Action("Create", "Clients", new { id = item.InstrumentID })'>
+            <img src="~/Content/image/@{@item.InstDescription}.jpg" />
+            <p>@{@item.InstType}  @{@item.InstDescription}</p>
+        </a>
+    }
+</table>

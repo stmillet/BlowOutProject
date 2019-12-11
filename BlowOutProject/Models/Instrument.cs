@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace BlowOutProject.Models
 {
+    [Table("Instrument")]
     public class Instrument
     {
-        //initialize instrument object attributes
-        public string Name { get; set; }
+        [Key]
+        [Required]
+        public int InstrumentID { get; set; }
 
-        [Display(Name = "Used Price")]
-        public string PriceUsed { get; set; }
-        [Display(Name = "New Price")]
-        public string PriceNew { get; set; }
+        [Required]
+        [Display(Name = "Instrument Type")]
+        public string InstType { get; set; }
 
-        //determine and initialize used and new prices
-        public string CalcPriceUsed()
-        {
-            return this.PriceUsed;
-        }
+        [Required]
+        [Display(Name = "Description")]
+        public string InstDescription { get; set; }
 
-        public string CalcPriceNew()
-        {
-            return this.PriceNew;
-        }
+        [Required]
+        [Display(Name = "Instrument Price")]
+        public double InstPrice { get; set; }
+
+        public int? ClientID { get; set; }
     }
 }
